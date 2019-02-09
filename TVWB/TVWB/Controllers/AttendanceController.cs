@@ -65,9 +65,6 @@ namespace TVWB.Controllers
             string pass = Request.Cookies["Password"];
             if (string.IsNullOrEmpty(user))
                 return Redirect("/Login/");
-            Console.WriteLine("------------------------------------");
-            Console.WriteLine($"{user} | {pass}");
-            Console.WriteLine("------------------------------------");
             var htmlDoc = new HtmlDocument();
             var uri = new Uri($"https://schoolapps2.tvdsb.ca/students/student_login/lgn.aspx?__EVENTTARGET&__EVENTARGUMENT&__VIEWSTATE=%2FwEPDwULLTE2MDk1ODI3MTFkZMUq3L2kXLCgWE%2BxPNKGiR2aDkz5&__VIEWSTATEGENERATOR=00958D10&__EVENTVALIDATION=%2FwEWBALO%2BPagDALT8dy8BQKd%2B7qdDgLCi9reA9VqLcMs82KsM9lnbdFM5U4r7vSJ&txtUserID={user}&txtPwd={pass}&btnSubmit=Login");
 
