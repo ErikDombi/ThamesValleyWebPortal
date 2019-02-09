@@ -15,8 +15,8 @@
     {
         var cObj = Model.Classes[i];
         <tr>
-            <td style="padding:10px">@cObj.Period.Replace("0-1", "")</td>
-            <td>
+            <td style="padding:10px">@cObj.Period.Replace("0", "") @(cObj.isHomeRoom ? " (Homeroom)" : "")</td>
+            <td style="padding:10px">
                 @cObj.ClassCode
             </td>
             <td>
@@ -28,9 +28,9 @@
         </tr>
     }
 </table>
-<table style="width:100%;margin-top:5px;">
+<table style="width:100%;">
     <tr class="header">
-        <td>Student #: @Model.StudentNum</td>
+        <td style="padding:10px;">Student #: @Model.StudentNum</td>
         <td>OEN #: @Model.OenNum</td>
         <td>Grade: @Model.Grade</td>
         <td>Locker #: @Model.LockNum</td>

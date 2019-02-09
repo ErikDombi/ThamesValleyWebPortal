@@ -1,0 +1,41 @@
+﻿@model AbsentsInfo
+@{
+    ViewData["Title"] = "Attendance";
+}
+<table style="width:100%;margin-top:40px;">
+    <tr class="header">
+        <td style="padding:10px;">Code</td>
+        <td style="padding:10px;">Period</td>
+        <td style="padding:10px;">Date</td>
+        <td style="padding:10px;">Class</td>
+        <td style="padding:10px;">Reason</td>
+    </tr>
+    @foreach(var absense in Model.Absences)
+    {
+        <tr>
+            <td style="padding:3px;">@absense.Code</td>
+            <td>@absense.Period</td>
+            <td>@absense.Date</td>
+            <td>@absense.Class</td>
+            <td>@absense.Reason</td>
+        </tr>
+    }
+</table>
+<table style="width:100%;">
+    <tr class="header">
+        <td style="padding:10px;">Absents: @Model.Absents</td>
+        <td>Lates: @Model.Lates</td>
+    </tr>
+</table>
+<style>
+    tr:nth-child(odd) {
+        background-color: #202020;
+    }
+
+    .header {
+        background-color: #1a7cba !important;
+        color: white;
+        padding: 10px;
+        font-weight: bold;
+    }
+</style>

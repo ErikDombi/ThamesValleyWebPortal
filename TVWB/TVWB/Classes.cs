@@ -9,7 +9,7 @@ namespace TVWB
         public string ClassCode { get; set; }
         public string ClassRoom { get; set; }
         public string Teacher { get; set; }
-
+        public bool isHomeRoom = false;
         public string Period { get; set; }
 
         public static Class parse(string innerText)

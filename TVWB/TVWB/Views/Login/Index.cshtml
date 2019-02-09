@@ -2,6 +2,13 @@
     ViewData["Title"] = "Login";
 }
 <script>
+    function keyUp(event) {
+        if (event.keyCode === 13)
+        {
+            submit();
+        }
+    }
+
     function submit() {
         $.ajax({
             type: "GET",
@@ -28,7 +35,7 @@
     <input style="border:none;background-color:transparent" id="user" class="" type="text" placeholder="Username"/>
 </div>
 <div class="webflow-style-input" style="border-radius:5px;margin-top:10px;">
-    <input style="border:none;background-color:transparent" id="pass" class="" type="password" placeholder="Password"/>
+    <input onkeyup="keyUp(event)" style="border:none;background-color:transparent" id="pass" class="" type="password" placeholder="Password"/>
     <button style="padding: 0; background: none; border: none; outline: none;margin-left:-10px;" onclick="submit()" type="submit">
         <i class="icon ion-android-arrow-forward"></i>
         🡢

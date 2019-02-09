@@ -31,13 +31,19 @@
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Timetable">Timetable</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Timetable" asp-action="Index">Timetable</a>
                         </li>
-                        @if (string.IsNullOrEmpty(Context.Request.Cookies["Username"])) {
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Attendance" asp-action="Index">Attendance</a>
+                        </li>
+                        @if (string.IsNullOrEmpty(Context.Request.Cookies["Username"]))
+                        {
                             <li class="nav-item">
                                 <a class="nav-link text-light" asp-area="" asp-controller="Login" asp-action="Index">Login</a>
                             </li>
-                        }else{
+                        }
+                        else
+                        {
                             <li class="nav-item">
                                 <a style="width:200px" class="nav-link text-light" asp-area="" asp-controller="Login" asp-action="Logout">Logout (@Context.Request.Cookies["Username"])</a>
                             </li>
