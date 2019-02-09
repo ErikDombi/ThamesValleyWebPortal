@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+<script>
+    function submit() {
+        $.ajax({
+            type: "GET",
+            url: "/Login/Login",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Username', document.getElementById("user").value);
+                xhr.setRequestHeader('Password', document.getElementById("pass").value);
+            },
+            statusCode: {
+                200: function () {
+                    Cookies.set("Username", document.getElementById("user").value, { expires: (1/24) });
+                    Cookies.set("Password", document.getElementById("pass").value, { expires: (1/24) });
+                    window.location.href = "/";
+                },
+                401: function () {
+                    document.getElementById("error").innerText = "Incorrect username or password";
+                }
+            },
+        });
+    }
+</script>
+
+<div class="webflow-style-input" style="border-radius:5px;">
+    <input style="border:none;background-color:transparent" id="user" class="" type="text" placeholder="Username"/>
+</div>
+<div class="webflow-style-input" style="border-radius:5px;margin-top:10px;">
+    <input style="border:none;background-color:transparent" id="pass" class="" type="password" placeholder="Password"/>
+    <button style="padding: 0; background: none; border: none; outline: none;margin-left:-10px;" onclick="submit()" type="submit">
+        <i class="icon ion-android-arrow-forward"></i>
+        🡢
+    </button>
+</div>
+<p id="error" style="color:red;"></p>
